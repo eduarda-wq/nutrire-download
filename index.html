@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrire - Sua alimentação, do seu jeito</title>
+  
+  <!-- Importação das Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- VARIÁVEIS DE CORES (A paleta do seu App) --- */
+    :root {
+      --verde: #82C785;
+      --verde-escuro: #6DC171;
+      --fundo: #F8FAFB;
+      --texto: #4A4A4A;
+      --texto-secundario: #757575;
+      --borda: #EBEBEB;
+      --branco: #FFFFFF;
+    }
+
+    /* --- RESET BÁSICO --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ::selection {
+      background-color: var(--verde);
+      color: var(--branco);
+    }
+
+    /* --- CONTAINER PRINCIPAL --- */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* --- CABEÇALHO (HERO) --- */
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      margin-top: 2rem;
+    }
+
+    .hero h1 {
+      color: var(--verde);
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 0.025em;
+    }
+
+    .hero h2 {
+      color: var(--texto);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      color: var(--texto-secundario);
+      font-size: 1.125rem;
+      max-width: 42rem;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    /* --- BOTÕES --- */
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--verde);
+      color: var(--branco);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      font-size: 1.25rem;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--verde-escuro);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- CARDS DE INFORMAÇÃO --- */
+    .cards-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background-color: var(--branco);
+      padding: 2rem;
+      border-radius: 30px;
+      border: 1px solid var(--borda);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      color: var(--verde);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .card li span.icon {
+      color: var(--verde);
+      margin-right: 0.75rem;
+      font-size: 1.25rem;
+    }
+
+    /* --- DETALHES DO APP --- */
+    .app-details {
+      width: 100%;
+      background-color: var(--branco);
+      padding: 2.5rem;
+      border-radius: 30px;
+      border: 1px solid var(--borda);
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .app-details h3 {
+      color: var(--texto);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background-color: var(--fundo);
+      padding: 0.5rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      border: 1px solid var(--borda);
+      color: var(--texto-secundario);
+      font-weight: 600;
+    }
+
+    .footer-credits {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--borda);
+      color: var(--texto-secundario);
+      font-size: 0.875rem;
+    }
+
+    /* --- RESPONSIVIDADE (Telas maiores) --- */
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 4.5rem; }
+      .hero h2 { font-size: 2.5rem; }
+      .cards-container { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    
+    <!-- Hero / Cabeçalho -->
+    <div class="hero">
+      <h1>Nutrire</h1>
+      <h2>Sua alimentação,<br>do seu jeito</h2>
+      <p>A aplicação pensada para acabar com o abismo entre o algoritmo e a realidade humana. Esqueça cardápios estáticos e a fadiga de digitação.</p>
+      
+      <!-- Lembre de conferir se o nome do seu APK ainda é esse! -->
+      <a href="application-3ec8221d-b001-49af-9bdc-778aceda3cb5.apk" class="btn-primary">
+        ⬇️ Baixar APK
+      </a>
+    </div>
+
+    <!-- Seções de Informação (Cards) -->
+    <div class="cards-container">
+      
+      <!-- Card Paciente -->
+      <div class="card">
+        <h3>Para Pacientes</h3>
+        <ul>
+          <li>
+            <span class="icon">✦</span>
+            <span><strong>IA Inteligente (Gemini):</strong> Grave suas refeições de forma ágil utilizando linguagem natural.</span>
+          </li>
+          <li>
+            <span class="icon">✦</span>
+            <span><strong>Acompanhamento Real:</strong> Planos alimentares estruturados e monitorados por nutricionistas capacitados.</span>
+          </li>
+          <li>
+            <span class="icon">✦</span>
+            <span><strong>Diário Dinâmico:</strong> Notificações e receitas personalizadas que se adaptam à sua rotina flexível.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card Nutricionista -->
+      <div class="card">
+        <h3>Para Profissionais</h3>
+        <ul>
+          <li>
+            <span class="icon">✦</span>
+            <span><strong>Dashboard Completo:</strong> Monitore a rotina dos seus pacientes com total responsabilidade e precisão.</span>
+          </li>
+          <li>
+            <span class="icon">✦</span>
+            <span><strong>Controle Parametrizado:</strong> A IA opera estritamente sob as regras clínicas definidas por você.</span>
+          </li>
+          <li>
+            <span class="icon">✦</span>
+            <span><strong>Estrategista de Saúde:</strong> Deixe de ser um "digitador de cardápios" e foque no comportamento do paciente.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Informações do App e Footer -->
+    <div class="app-details">
+      <h3>Detalhes do Aplicativo</h3>
+      
+      <div class="tags">
+        <span class="tag">Versão: 1.0.0</span>
+        <span class="tag">Sistema: Android</span>
+      </div>
+
+      <a href="application-3ec8221d-b001-49af-9bdc-778aceda3cb5.apk" class="btn-primary" style="font-size: 1.125rem; padding: 0.75rem 2rem;">
+        Baixar Nutrire
+      </a>
+
+      <div class="footer-credits">
+        <p>Desenvolvido por <strong>Amanda Duarte</strong> e <strong>Eduarda Costa</strong></p>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
